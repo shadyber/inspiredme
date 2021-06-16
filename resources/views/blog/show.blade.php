@@ -84,7 +84,7 @@
                                     <div class="single-post-comment">
                                         <!-- Author Image -->
                                         <div class="comment-author-image">
-                                            <img src="{{$comment->user->photo}}" alt="{{$comment->user->photo}}" class="img-fluid">
+                                            <img src="{{$comment->user->photo}}" alt="{{$comment->user->photo}}" class="img-fluid" width="72px">
                                         </div>
                                         <!-- Comment Content -->
                                         <div class="comment-content">

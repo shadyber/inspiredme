@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\BlogCategory;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
-
 class BlogCategoryController extends Controller
 {
 
@@ -66,13 +65,15 @@ class BlogCategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\BlogCategory  $blogCategory
-     * @return \Illuminate\Http\Response
+     *
+     * @param  string $slug
+     * @return Response
      */
-    public function show(BlogCategory $blogCategory)
+    public function show($slug)
     {
+        $blogCategory=BlogCategory::where('slug',$slug)->first();
         //
-        $blogs=$blogCategory->Blogs;
+        $blogs=$blogCategory->blogs;
         return view('blog.index')->with(['blogs'=>$blogs]);
     }
 

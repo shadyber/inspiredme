@@ -1,5 +1,5 @@
 /*---------------------------------------------
-Template name:  BizBlog
+Template name:  info251
 Version:        1.0
 Author:         rootSystem
 Author url:     http://RootSystemcom

@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BlogCategory extends Model
-{  use HasFactory;
+{
+    use HasFactory;
 
+    use Sluggable;
     protected $fillable = [
         'title',
+        'slug',
         'detail',
         'icon',
 
@@ -18,7 +22,15 @@ class BlogCategory extends Model
     public static function allCategories(){
         return BlogCategory::all();
     }
-    public function Blogs(){
+    public function blogs(){
         return $this->hasMany(Blog::class);
+    }
+
+    public function sluggable(): array
+    {
+        // TODO: Implement sluggable() method.
+        return [
+            'slug'=>['source'=>'title']
+        ];
     }
 }

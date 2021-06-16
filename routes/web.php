@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -39,6 +40,10 @@ Route::get('/search', [App\Http\Controllers\SearchController::class,'search'])->
 
 Route::get('/terms', function (){
     return view('terms');
+});
+
+Route::get('/about', function (){
+    return view('about');
 });
 
 Route::resource('/comment', App\Http\Controllers\BlogCommentController::class);

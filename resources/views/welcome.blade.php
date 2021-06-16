@@ -4,8 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>InsireMe Welcome</title>
+        <title>Welcome {{ config('app.name', 'InspiredMe') }}</title>
 
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -43,20 +52,10 @@
     <!--==== Custom css file ====-->
     <link rel="stylesheet" href="/assets/css/custom.css">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     </head>
 
     <body>
-
     <!-- Preloader -->
     <div class="preloader">
         <div class="preload-img">
@@ -71,6 +70,8 @@
 
 @include('components.header')
 @include('components.banner')
+<main id="app
+">
 
     <!-- Trending Posts-->
     <section class="pt-120 pb-10">
@@ -94,7 +95,7 @@
                         </div>
                         <div class="post-data">
                             <!-- Category -->
-                            <div class="cats"><a href="/category/{{$blog->category->id}}">{{$blog->category->title}}</a></div>
+                            <div class="cats"><a href="/category/{{$blog->category->slug}}">{{$blog->category->title}}</a></div>
                             <!-- Title -->
                             <div class="title">
                                 <h2><a href="/blog/{{$blog->slug}}"> {{$blog->title}}</a></h2>
@@ -106,7 +107,7 @@
                                     <a href="#">{{$blog->user->name}}</a>
                                 </li>
                                 <li class="meta-date"><a href="#">{{$blog->created_at->diffForHumans()}}</a></li>
-                                <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> 2</a></li>
+                                <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> {{count($blog->blogcomments)}}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -122,7 +123,7 @@
                     <div class="post-default post-has-no-thumb">
                         <div class="post-data">
                             <!-- Category -->
-                            <div class="cats"><a href="/category/{{$blog->category->id}}">{{$blog->category->title}}</a></div>
+                            <div class="cats"><a href="/category/{{$blog->category->slug}}">{{$blog->category->title}}</a></div>
                             <!-- Title -->
                             <div class="title">
                                 <h2><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h2>
@@ -134,7 +135,7 @@
                                     <a href="#">{{$blog->user->name}}</a>
                                 </li>
                                 <li class="meta-date"><a href="#">{{$blog->created_at->diffForHumans()}}</a></li>
-                                <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> 2</a></li>
+                                <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> {{count($blog->blogcomments)}}</a></li>
                             </ul>
                             <!-- Post Desc -->
                             <div class="desc">
@@ -179,7 +180,7 @@
                                 </div>
                                 <div class="post-data order-md-1">
                                     <!-- Category -->
-                                    <div class="cats"><a href="/category/{{$blog->category->id}}">{{$blog->category->title}}</a></div>
+                                    <div class="cats"><a href="/category/{{$blog->category->slug}}">{{$blog->category->title}}</a></div>
                                     <!-- Title -->
                                     <div class="title">
                                         <h2><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h2>
@@ -191,7 +192,7 @@
                                             <a href="#">{{$blog->user->name}}</a>
                                         </li>
                                         <li class="meta-date"><a href="#">{{$blog->created_at->diffForHumans()}}</a></li>
-                                        <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> 2</a></li>
+                                        <li class="meta-comments"><a href="#"><i class="fa fa-comment"></i> {{count($blog->blogcomments)}}</a></li>
                                     </ul>
                                     <!-- Post Desc -->
                                     <div class="desc">
@@ -228,7 +229,7 @@
                                     </div>
                                     <div class="post-data">
                                         <!-- Category -->
-                                        <div class="cats"><a href="/category/{{$blog->category->id}}">{{$blog->category->title}}</a></div>
+                                        <div class="cats"><a href="/category/{{$blog->category->slug}}">{{$blog->category->title}}</a></div>
                                         <!-- Title -->
                                         <div class="title">
                                             <h2><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h2>
@@ -248,7 +249,7 @@
                                     </div>
                                     <div class="post-data">
                                         <!-- Category -->
-                                        <div class="cats"><a href="/category/{{$blog->category->id}}">{{$blog->category->title}}</a></div>
+                                        <div class="cats"><a href="/category/{{$blog->category->slug}}">{{$blog->category->title}}</a></div>
                                         <!-- Title -->
                                         <div class="title">
                                             <h2><a href="/blog/{{$blog->slug}}">{{$blog->title}} </a></h2>
@@ -416,16 +417,16 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <!-- Newsletter Form -->
-                        <form  action="https://rootSystem.us13.list-manage.com/subscribe/post?u=79f0b132ec25ee223bb41835f&amp;id=f4e0e93d1d" method="post" novalidate>
+                        <form  action="/newsletter" method="post" novalidate>
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Enter Your Email">
                                 <div class="input-group-append">
-                                    <button class="btn btn-default">Submit</button>
+                                    <button class="btn btn-default">{{__('Submit')}}</button>
                                 </div>
                             </div>
                             <p class="checkbox-cover d-flex justify-content-center">
-                                <label> I've read and accept the <a href="#"> Privacy Policy </a>
-                                    <input type="checkbox">
+                                <label> I've read and accept the <a href="/terms">Terms &amp; Privacy Policy </a>
+                                    <input type="checkbox" required>
                                     <span class="checkmark"></span>
                                 </label>
                             </p>
@@ -464,6 +465,7 @@
     </footer>
     <!-- End of Footer -->
 
+</main>
     <!-- Back to Top Button -->
     <div class="back-to-top d-flex align-items-center justify-content-center">
         <span><i class="fa fa-long-arrow-up"></i></span>

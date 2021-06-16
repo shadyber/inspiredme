@@ -23,6 +23,7 @@ class BlogCategoryFactory extends Factory
     {
         return [
             'title' => $this->faker->word,
+            'slug' => $this->faker->word,
             'detail' => $this->faker->paragraph,
             'icon' => 'fa fa-tags',
         ];
