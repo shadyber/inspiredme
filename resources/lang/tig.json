@@ -1,0 +1,29 @@
+{
+    "Home": "መጀመሪያ",
+    "Articles": "መጣጥፎች",
+    "Categories": "ምድቦች",
+    "Search Result": "የፍለጋ ውጤት",
+    "welcome" : "እንኳን ደህና መጡ",
+    "Search" : "ፈልግ",
+    "Contact" : "መገኛ",
+    "previous" : "&laquo; በፌት",
+    "next" : "ቀጥሎ  &raquo;",
+
+    "failed": "አልተሳካም እባክዎ ድጋሚ ይሞክሩ",
+    "Primary phone number": "ዋና ስልክ",
+    "password": "የይለፍ ቃል",
+    "profile": "",
+    "join": "ተቀላቀሉን",
+    "logout": "ዘግተህ ውጣ ",
+    "throttle": "በተደጋጋሚ ሙከራ ተሞክሯል ",
+    "Helping You": "እርስዎን መርዳት",
+    "Check Out Our Services": "አገልግሎታችንን ይመልከቱ",
+    "Stay in touch": "አትጥፋ",
+
+    "read more": "ተጨማሪ ላንብብ",
+    "Popular": "የተለመዱ",
+    "Latest": "የቅርብ",
+    "From MedInfo": "ከ ሜድ ኢንፎ ",
+    "Stay in touch:": "እንዳያመልጥዎት ",
+    "JOIN ": "ተቀላቀሉ"
+}
