@@ -61,6 +61,8 @@
 
 </head>
     <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=1241046355944849&autoLogAppEvents=1" nonce="M020a1ZV"></script>
 
           <!-- Preloader -->
     <div class="preloader">
