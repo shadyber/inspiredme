@@ -6,6 +6,12 @@
 
         <title>Welcome {{ config('app.name', 'InspiredMe') }}</title>
 
+        <meta property="og:url"           content="{{url()->full()}}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Welcome to  Info251" />
+        <meta property="og:description"   content="sms ok on 6475 to suscribe " />
+        <meta property="og:image"         content="https://info251.com/assets/images/banner/4.jpg')" />
+
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 

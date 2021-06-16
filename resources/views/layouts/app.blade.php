@@ -19,6 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <meta property="og:url"           content="{{url()->full()}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="@yield('title') at Info251" />
+    <meta property="og:description"   content="@yield('detail')" />
+    <meta property="og:image"         content="@yield('image')" />
 
     <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
