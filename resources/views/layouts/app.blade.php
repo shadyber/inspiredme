@@ -84,7 +84,44 @@
 
 
 @include('components.header')
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">6475 Ok</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
 
+                    <div class="newsletter">
+                        <div class="section-title text-center">
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 offset-lg-2">
+                                <form action="#" method="post" novalidate="novalidate">
+                                    <div class="input-group">
+
+                                        <div class="input-group-append">
+                                            <a href="sms://6475?body=ok" class="btn btn-default btn-block">Join Us Now</a>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer input-group-append">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Later</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
         <main class="py-4">
             @yield('content')
         </main>
@@ -112,5 +149,13 @@
         <!-- ==== Custom js file ==== -->
         <script src="/assets/js/custom.js"></script>
 
+    <script>
+
+        $(window).scroll(function() {
+            if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                $("#myModal").modal('show');
+            }
+        });
+    </script>
         </body>
     </html>

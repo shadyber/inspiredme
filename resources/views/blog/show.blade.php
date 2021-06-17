@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title',$blog->title)
+@section('image','https://info251.com/'.$blog->photo)
+@section('detail',$blog->detail)
+
 @section('content')
     <div class="page-title">
         <div class="container">

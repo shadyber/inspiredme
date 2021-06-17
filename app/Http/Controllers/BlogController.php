@@ -74,11 +74,11 @@ class BlogController extends Controller
         }
 
 
-
+//dd($request);
         Blog::create([
                 'title'=>$request->input('title'),
                 'detail'=>$request->input('detail'),
-                'slug'=>SlugService::createSlug(Blog::class,'slug',$request->title),
+                'slug'=>SlugService::createSlug(Blog::class,'slug',$request->title.$request->_token),
                 'photo'=>'/images/blog/'.$newImageName,
                 'thumb'=>'/images/blog/thumbnile/'.$newImageName,
                 'tags'=>$request->input('tags'),
