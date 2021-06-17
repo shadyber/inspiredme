@@ -57,6 +57,8 @@ Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.imag
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 
+Route::get('/notifications',[App\Http\Controllers\NotificationsController::class,'index']);
+Route::get('/notifications/{id}',[App\Http\Controllers\NotificationsController::class,'show'])->name('notification.read');
 
 Route::group(['middleware' => 'role:admin'], function() {
 

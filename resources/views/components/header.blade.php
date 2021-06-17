@@ -36,15 +36,70 @@
                             <li><a href="/contact">{{__('Contact')}}</a></li>
 
 
+                            <li class="menu-item-has-children">
+
+
+                                <a  href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                    <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
+                                    {{ Config::get('languages')[App::getLocale()]['display'] }}
+
+                                </a>
+
+                                    <ul class="sub-menu">
+                                        @foreach (Config::get('languages') as $lang => $language)
+
+                                            @if ($lang != App::getLocale())
+
+                                                <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
+                                                    <span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
+                                                    {{$language['display']}}
+                                                </a>
+
+                                            @endif
+
+                                        @endforeach
+                                    </ul>
+
+                            </li>
 
                             @if (Route::has('login'))
-
                                 @auth
+                                    <!-- Nav Item - Alerts -->
+                                        <li class="menu-item-has-children">
+                                            <a   href="#" id="alertsDropdown" role="button"
+                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-bell-slash-o"></i>
+                                                <!-- Counter - Alerts -->
+                                                <span class="badge badge-info badge-counter">
+                       {{count(\Illuminate\Support\Facades\Auth::user()->unreadNotifications)}}</span>
+                                            </a>
+                                            <ul class="sub-menu">
+
+                                                @foreach(\Illuminate\Support\Facades\Auth::user()->unreadNotifications as $notification)
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center" href="/home/{{$notification->id}}">
+                                                            <div class="mr-3">
+                                                                <div class="icon-circle bg-primary">
+                                                                    <i class="fas fa-file-alt text-white"></i>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="small text-gray-500">{{$notification->created_at->diffForHumans()}}</div>
+                                                                <span class="font-weight-bold">{{$notification->data['message']}}</span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                                <li>     <a class="dropdown-item text-center small text-gray-500" href="/notifications">Show All Alerts </a></li>
+                                            </ul>
+                                        </li>
+
                                     <li class="menu-item-has-children">
 
                                         <a href="#" >
                                             <img src="{{\Illuminate\Support\Facades\Auth::user()->photo}}"   alt="{{\Illuminate\Support\Facades\Auth::user()->name}}" width="32px" >
-                                       <span class="badge badge-info">0</span>
+
                                         <ul class="sub-menu">
                                           <li>
 
@@ -72,6 +127,7 @@
                         @endauth
                     </div>
                     @endif
+
 
                     </ul>
                     <!-- Mobile Menu -->

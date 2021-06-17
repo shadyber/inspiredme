@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
+use App\Notifications\BlogCreatedNotification;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -98,6 +100,12 @@ class BlogController extends Controller
                 'blog_category_id'=>$request->input('blog_category_id'),
             ]
         );
+
+
+        $users=User::all();
+        foreach ($users as $user){
+            $user->Notify(new BlogCreatedNotification());
+        }
 
         return redirect()->back()->with('message','Article Created Succusfully!');
 

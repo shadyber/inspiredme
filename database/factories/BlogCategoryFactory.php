@@ -23,7 +23,7 @@ class BlogCategoryFactory extends Factory
     {
         return [
             'title' => $this->faker->word,
-            'slug' => $this->faker->word,
+            'slug' => str_replace(' ','-', $this->faker->sentence),
             'detail' => $this->faker->paragraph,
             'icon' => 'fa fa-tags',
         ];

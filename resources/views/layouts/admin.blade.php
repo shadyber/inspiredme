@@ -86,6 +86,38 @@
                 <!-- ============================================================== -->
                 <ul class="navbar-nav ml-auto d-flex align-items-center">
 
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">
+                       {{count(\Illuminate\Support\Facades\Auth::user()->unreadNotifications)}}</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                             aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            @foreach(\Illuminate\Support\Facades\Auth::user()->unreadNotifications as $notification)
+
+                                <a class="dropdown-item d-flex align-items-center" href="/notifications/{{$notification->id}}">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">{{$notification->created_at->diffForHumans()}}</div>
+                                        <span class="font-weight-bold">{{$notification->data['message']}}</span>
+                                    </div>
+                                </a>
+                            @endforeach
+                            <a class="dropdown-item text-center small text-gray-500" href="/notifications">Show All Alerts </a>
+                        </div>
+                    </li>
                     <!-- ============================================================== -->
                     <!-- Search -->
                     <!-- ============================================================== -->
@@ -108,7 +140,18 @@
                             <img src="{{Auth::user()->photo}}" alt="user-img" width="36"
                                  class="img-circle"><span class="text-white font-medium">{{Auth::user()->name}}</span></a>
                     </li>
+<li>
+    <a href="{{ route('logout') }}" class="profile-pic"
+    onclick="event.preventDefault();
+  document.getElementById('logout-form').submit();">
+          <i class="fa fa-power-off"></i>  {{ __('Logout') }}
 
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+
+    </a>
+</li>
 
                     <!-- ============================================================== -->
                     <!-- User profile and search -->

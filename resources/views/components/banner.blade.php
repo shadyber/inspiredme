@@ -13,7 +13,7 @@
                             <h1> Don't watch the clock; do what it does. Keep going.</h1>
                             <p class="desc"> Don't watch the clock; do what it does. Keep going.
                                </p>
-                            <a href="sms://8888?body=ok" class="btn btn-primary btn btn-light">Subscribe</a>
+                            <a href="sms://6475?body=ok" class="btn btn-primary btn btn-light">Subscribe</a>
                         </div>
                         <!-- End of Banner Text -->
                     </div>

@@ -29,7 +29,7 @@ class BlogFactory extends Factory
             'blog_category_id' => $this->faker->numberBetween(1,3),
             'user_id' => '1',
             'tags' => '',
-            'slug' => $this->faker->word,
+            'slug' => str_replace(' ','-', $this->faker->sentence),
 
 
         ];
