@@ -48,7 +48,7 @@ Route::get('/about', function (){
 
 Route::resource('/comment', App\Http\Controllers\BlogCommentController::class);
 
-
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 

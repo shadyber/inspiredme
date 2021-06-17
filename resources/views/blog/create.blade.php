@@ -42,7 +42,7 @@
         <div class="form-group mb-4">
             <label class="col-md-12 p-0">{{__('Detail')}}</label>
             <div class="col-md-12 border-bottom p-0">
-                <textarea rows="5" name="detail" class="form-control p-0 border-0   @error('detail') is-invalid @enderror"></textarea>
+                <textarea rows="5" name="detail" class="form-control p-0 border-0 ckeditor   @error('detail') is-invalid @enderror"></textarea>
             </div>
             @error('detail')
             <span class="invalid-feedback" role="alert">
@@ -73,4 +73,20 @@
     </form>
 
 
+@endsection
+@section('scripts')
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.ckeditor').ckeditor();
+        });
+
+
+
+        CKEDITOR.replace('wysiwyg-editor', {
+            filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
 @endsection

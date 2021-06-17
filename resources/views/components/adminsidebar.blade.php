@@ -33,17 +33,14 @@
 
                 <hr>
                 <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                            href="map-google.html" aria-expanded="false"><i class="fa fa-users"
+                                            href="/users" aria-expanded="false"><i class="fa fa-users"
                                                                                             aria-hidden="true"></i><span
                             class="hide-menu">Manage Users</span></a></li>
+
                 <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                            href="/users" aria-expanded="false"><i class="fa fa-users"
-                                                                                       aria-hidden="true"></i><span
-                            class="hide-menu">Blank</span></a></li>
-                <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                            href="404.html" aria-expanded="false"><i class="fa fa-info-circle"
+                                            href="/subscribers" aria-expanded="false"><i class="fa fa-info-circle"
                                                                                      aria-hidden="true"></i><span
-                            class="hide-menu">404</span></a></li>
+                            class="hide-menu">Newsletter List</span></a></li>
 
             </ul>
 

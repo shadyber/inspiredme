@@ -149,6 +149,7 @@
         <!-- ==== Custom js file ==== -->
         <script src="/assets/js/custom.js"></script>
 
+
     <script>
 
         $(window).scroll(function() {
@@ -156,6 +157,9 @@
                 $("#myModal").modal('show');
             }
         });
+
+
+
     </script>
         </body>
     </html>

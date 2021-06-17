@@ -58,7 +58,10 @@
 
 
                         <div class="fb-like" data-href="https://info251.com/blog/{{$blog->slug}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-                    <p>{{$blog->detail}}</p>
+
+                        <div>
+                            {!!html_entity_decode($blog->detail)!!}
+                        </div>
 
                     </div>
                     <!-- End of Post Content -->

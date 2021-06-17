@@ -224,6 +224,7 @@
 <script src="/admin/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="/admin/js/custom.js"></script>
+@yield('scripts')
 </body>
 
 </html>

@@ -386,7 +386,7 @@
                                 <div class="newsletter">
                                     <form action="/newsletter" method="post" novalidate>
                                         <input type="text" class="form-control" placeholder="Your Email">
-                                        <button class="btn btn-block btn-default">Subscribe</button>
+                                        <button class="btn btn-block btn-default">{{__('Subscribe')}}</button>
                                     </form>
                                 </div>
                             </div>
