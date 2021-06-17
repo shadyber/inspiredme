@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\BlogCategory;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class BlogCategoryController extends Controller
 {
 
@@ -30,6 +32,9 @@ class BlogCategoryController extends Controller
     public function create()
     {
         //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
         return view('category.create');
     }
 
@@ -41,6 +46,9 @@ class BlogCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
 
 
         $request->validate([
@@ -86,6 +94,9 @@ class BlogCategoryController extends Controller
     public function edit(BlogCategory $blogCategory)
     {
         //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
     }
 
     /**
@@ -98,6 +109,11 @@ class BlogCategoryController extends Controller
     public function update(Request $request, BlogCategory $blogCategory)
     {
         //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
+
+
     }
 
     /**
@@ -109,5 +125,8 @@ class BlogCategoryController extends Controller
     public function destroy(BlogCategory $blogCategory)
     {
         //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
     }
 }

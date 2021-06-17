@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,4 +57,12 @@ Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.imag
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 
+
+Route::group(['middleware' => 'role:admin'], function() {
+
+    Route::resource('/user', App\Http\Controllers\UserController::class);
+    Route::resource('/permission', App\Http\Controllers\PermissionController::class);
+    Route::resource('/role', App\Http\Controllers\RoleController::class);
+
+});
 

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class AdminSeeder extends Seeder
+class UserRoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,10 +13,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name' => 'Super Admin',
-            'email' => 'admin@medinfo.local',
-            'password' => bcrypt('password')
+        //
+
+        \DB::table('users_roles')->insert([
+            'user_id' => 1,
+            'role_id' => 1,
         ]);
+
     }
 }

@@ -19,7 +19,7 @@ class BlogComment extends Model
 
 
 
-    public function post()
+    public function blog()
     {
         return $this->belongsTo(Blog::class);
     }

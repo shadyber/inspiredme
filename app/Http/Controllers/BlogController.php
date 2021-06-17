@@ -6,7 +6,9 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
+use Illuminate\Support\Facades\Auth;
 use Image;
+
 
 
 class BlogController extends Controller
@@ -14,7 +16,6 @@ class BlogController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('index','show');
-
     }
     /**
      * Display a listing of the resource.
@@ -35,7 +36,14 @@ class BlogController extends Controller
     public function create()
     {
         //
+
+        //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
         return view('blog.create');
+
+
     }
 
     /**
@@ -46,7 +54,9 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
 
         $request->validate([
             'title'=>'required',
@@ -128,7 +138,11 @@ $blog->save();
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
+
+
 
     }
 
@@ -140,7 +154,10 @@ $blog->save();
      */
     public function destroy(Blog $blog)
     {
-        //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\t Have This Permission');
+        }
+
     }
 
 

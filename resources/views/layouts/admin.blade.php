@@ -11,7 +11,7 @@
     <meta name="description"
           content="Inspirational qouts">
     <meta name="robots" content="noindex,nofollow">
-    <title>InspiredMe.</title>
+    <title>InspiredMe. @yield('title')</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="/admin/image/png" sizes="16x16" href="/admin/plugins/images/favicon.png">
@@ -100,11 +100,16 @@
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
+
+
+
                     <li>
                         <a class="profile-pic" href="#">
                             <img src="{{Auth::user()->photo}}" alt="user-img" width="36"
                                  class="img-circle"><span class="text-white font-medium">{{Auth::user()->name}}</span></a>
                     </li>
+
+
                     <!-- ============================================================== -->
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
@@ -126,19 +131,7 @@
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
     <div class="page-wrapper" style="min-height: 250px;">
-
-        @if(session()->has('message'))
-            <div class="w-full bg-green-200 text-gray-300 border-2 border-gray-300"> {{session()->get('message')}}</div>
-        @endif
-        @if($errors)
-
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-    @endif
-
+ @include('layouts.flash_message')
 
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
@@ -151,7 +144,7 @@
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <div class="d-md-flex">
                         <ol class="breadcrumb ml-auto">
-                            <li><a href="#">Title</a></li>
+                            <li><a href="#">@section('title','Title')</a></li>
                         </ol>
                         <span>sub title</span>
                     </div>
@@ -195,8 +188,8 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer text-center"> 2020 © Ample Admin brought to you by <a
-                href="https://www.wrappixel.com/">wrappixel.com</a>
+        <footer class="footer text-center"> 2020 © Info251 Admin brought to you by <a
+                href="https://rootsystem.info">root system</a>
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

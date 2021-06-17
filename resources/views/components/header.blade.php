@@ -36,39 +36,33 @@
                             <li><a href="/contact">{{__('Contact')}}</a></li>
 
 
-                            <li class="menu-item-has-children">
-
-
-                                <a  href="#" >
-
-                                    <span class="flag-icon flag-icon-{{Config::get('languages')[App::getLocale()]['flag-icon']}}"></span>
-                                    {{ Config::get('languages')[App::getLocale()]['display'] }}
-
-                                </a>
-
-                                <ul class="sub-menu">
-                                    @foreach (Config::get('languages') as $lang => $language)
-
-                                        @if ($lang != App::getLocale())
-
-                                            <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}">
-                                                <span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span>
-                                                {{$language['display']}}
-                                            </a>
-
-                                        @endif
-
-                                    @endforeach
-                                </ul>
-
-                            </li>
-
-
 
                             @if (Route::has('login'))
 
                                 @auth
-                                    <li>  <a href="{{ url('/home') }}" >{{__('Home')}}</a></li>
+                                    <li class="menu-item-has-children">
+
+                                        <a href="#" >
+                                            <img src="{{\Illuminate\Support\Facades\Auth::user()->photo}}"   alt="{{\Illuminate\Support\Facades\Auth::user()->name}}" width="32px" >
+                                       <span class="badge badge-info">0</span>
+                                        <ul class="sub-menu">
+                                          <li>
+
+                                              <a class="dropdown-item" href="{{ route('logout') }}"
+                                                 onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                  {{ __('Logout') }}
+                                              </a>
+
+                                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                  @csrf
+                                              </form>
+
+                                          </li>
+                                          <li> <a href="{{ url('/home') }}"  > <i class="mdi-logout-variant"></i> {{__('Profile') }}</a> </li>
+                                        </ul>
+
+
                                 @else
                                     <li>  <a href="{{ route('login') }}">{{__('Login')}}</a></li>
 

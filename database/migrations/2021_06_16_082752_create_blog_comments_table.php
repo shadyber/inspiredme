@@ -21,6 +21,7 @@ class CreateBlogCommentsTable extends Migration
             $table->foreign('user_id')->on('users')->references('id');
 
             $table->longText('comment');
+            $table->bigInteger('replay_to_id')->default(0);
             $table->timestamps();
         });
     }
