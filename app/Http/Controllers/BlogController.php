@@ -8,7 +8,7 @@ use App\Notifications\BlogCreatedNotification;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 use Image;
 
 
@@ -76,15 +76,15 @@ class BlogController extends Controller
 
             $file = $request->file('photo');
             $file_name =$newImageName;
-            $destinationPath = 'images/blog/thumbnile/';
-            $new_img = Image::make($file->getRealPath())->resize(640,480);
+
+            $destinationPath = 'images/blog/thumbnails/';
+            $new_img = Image::make($file->getRealPath())->resize(530, 530);
 
 // save file with medium quality
-            $new_img->save($destinationPath . $file_name, 20);
+            $new_img->save($destinationPath . $file_name, 80);
             $request->photo->move(public_path('images/blog'),$newImageName);
 
         }
-
 
 //dd($request);
         Blog::create([
@@ -92,7 +92,7 @@ class BlogController extends Controller
                 'detail'=>$request->input('detail'),
                 'slug'=>SlugService::createSlug(Blog::class,'slug',$request->title.$request->_token),
                 'photo'=>'/images/blog/'.$newImageName,
-                'thumb'=>'/images/blog/thumbnile/'.$newImageName,
+                'thumb'=>'/images/blog/thumbnails/'.$newImageName,
                 'tags'=>$request->input('tags'),
 
                 'user_id'=>auth()->user()->id,
