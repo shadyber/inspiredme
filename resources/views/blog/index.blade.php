@@ -35,7 +35,7 @@
                                 <!-- Post Desc -->
                                 <div class="desc">
                                     <p>
-                                    {{!! substr($blog->detail,0,100) }}
+                                    {{!! substr(strip_tags($blog->detail),0,100) }}
                                     </p>
                                 </div>
                             </div>

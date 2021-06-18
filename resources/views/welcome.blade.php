@@ -196,7 +196,7 @@
                             <!-- Post Desc -->
                             <div class="desc">
                                 <p>
-                                    {{substr($blog->detail,0,100)}}
+                                    {{substr(strip_tags($blog->detail),0,100)}}
                                 </p>
                             </div>
                         </div>
@@ -252,7 +252,7 @@
                                     </ul>
                                     <!-- Post Desc -->
                                     <div class="desc">
-                                        <p>{{substr($blog->detail,0,100)}}
+                                        <p>{{substr(strip_tags($blog->detail),0,100)}}
                                         </p>
                                     </div>
                                     <!-- Read More Button -->
@@ -313,7 +313,7 @@
                                         <!-- Post Desc -->
                                         <div class="desc">
                                             <p>
-                                                {{substr($blog->detail,0,100)}}
+                                                {{substr(strip_tags($blog->detail),0,100)}}
                                             </p>
                                         </div>
                                     </div>
