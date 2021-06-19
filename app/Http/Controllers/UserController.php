@@ -7,7 +7,9 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use PHPUnit\Exception;
 
 class UserController extends Controller
 {
@@ -40,7 +42,8 @@ class UserController extends Controller
     public function create()
     {
         //
-        return view('users.create');
+
+        return view ('users.create')->with(['roles'=>Role::all()]);
     }
 
     /**
@@ -61,7 +64,7 @@ class UserController extends Controller
                 $user->roles()->attach(Role::find($request->input('role')));
                 $users=User::all();
 
-                return view('user.index')->with(['users'=>$users,'user'=>$user,'success'=>'User Created Succusfully']);
+                return view('users.index')->with(['users'=>$users,'user'=>$user,'success'=>'User Created Succusfully']);
 
             }catch (QueryException $ex){
 
@@ -111,14 +114,25 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'role' => 'required',
 
         ]);
 
+        try{
 
+
+        \DB::table('users_roles')->insert([
+            'user_id' => $id,
+            'role_id' => $request->role,
+        ]);
+ }catch (QueryException $qx){
+
+        }
         $user=User::find($id);
         $user->update($request->all());
 
-        return redirect()->route('users.index')
+
+        return redirect()->route('user.index')
             ->with('success', 'User updated successfully');
 
     }

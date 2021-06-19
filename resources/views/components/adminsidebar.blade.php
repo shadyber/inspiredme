@@ -20,27 +20,44 @@
                 </li>
 
                 <hr>
+
+                <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                                      href="/blog/create" aria-expanded="false"><i class="fa fa-font"
+                                                                                                   aria-hidden="true"></i><span
+                            class="hide-menu">Create Article</span></a></li>
                 <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
                                             href="/category/create" aria-expanded="false"><i class="fa fa-table"
                                                                                              aria-hidden="true"></i><span
                             class="hide-menu">Create Category</span></a></li>
 
 
-                <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                            href="/blog/create" aria-expanded="false"><i class="fa fa-font"
-                                                                                             aria-hidden="true"></i><span
-                            class="hide-menu">Create Article</span></a></li>
+
 
                 <hr>
                 <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                            href="/users" aria-expanded="false"><i class="fa fa-users"
+                                            href="/user" aria-expanded="false"><i class="fa fa-users"
                                                                                             aria-hidden="true"></i><span
                             class="hide-menu">Manage Users</span></a></li>
 
+
+   <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                            href="/role" aria-expanded="false"><i class="fa fa-users"
+                                                                                            aria-hidden="true"></i><span
+                            class="hide-menu">Manage Roles</span></a></li>
+
+
+   <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                            href="/permission" aria-expanded="false"><i class="fa fa-users"
+                                                                                            aria-hidden="true"></i><span
+                            class="hide-menu">Manage Permissions</span></a></li>
+                <hr>
+
                 <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                            href="/subscribers" aria-expanded="false"><i class="fa fa-info-circle"
+                                            href="/newsletters" aria-expanded="false"><i class="fa fa-info-circle"
                                                                                      aria-hidden="true"></i><span
                             class="hide-menu">Newsletter List</span></a></li>
+
+
 
             </ul>
 

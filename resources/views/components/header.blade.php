@@ -78,7 +78,7 @@
 
                                                 @foreach(\Illuminate\Support\Facades\Auth::user()->unreadNotifications as $notification)
                                                     <li>
-                                                        <a class="dropdown-item d-flex align-items-center" href="/home/{{$notification->id}}">
+                                                        <a class="dropdown-item d-flex align-items-center" href="/blog/{{$notification->id}}">
                                                             <div class="mr-3">
                                                                 <div class="icon-circle bg-primary">
                                                                     <i class="fas fa-file-alt text-white"></i>

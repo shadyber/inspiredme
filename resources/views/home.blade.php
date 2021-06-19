@@ -15,7 +15,7 @@
                     @endif
 
 
-
+  {{\Illuminate\Support\Facades\Auth::user()->hasRole('admin','editor')}}
                 </div>
             </div>
         </div>

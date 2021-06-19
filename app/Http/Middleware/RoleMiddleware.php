@@ -14,7 +14,7 @@ class RoleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, $role, $permission = null)
+    public function handle($request, Closure $next, $role, $permission = null)
     {
         if(!$request->user()->hasRole($role)) {
 
@@ -28,5 +28,6 @@ class RoleMiddleware
         }
 
         return $next($request);
+
     }
 }
