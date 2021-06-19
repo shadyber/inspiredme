@@ -13,6 +13,7 @@ class BlogCategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except('index','show');
+
     }
     /**
      * Display a listing of the resource.
@@ -22,6 +23,8 @@ class BlogCategoryController extends Controller
     public function index()
     {
         //
+        $this->middleware('auth')->except('index','show');
+        return view('category.index');
     }
 
     /**
@@ -33,7 +36,7 @@ class BlogCategoryController extends Controller
     {
         //
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
         return view('category.create');
     }
@@ -47,7 +50,7 @@ class BlogCategoryController extends Controller
     public function store(Request $request)
     {
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
 
 
@@ -66,7 +69,7 @@ class BlogCategoryController extends Controller
             ]
         );
 
-        return redirect()->back()->with('message','Article Category Created Succusfully!');
+        return redirect()->back()->with('success','Article Category Created Succusfully!');
 
     }
 
@@ -95,7 +98,7 @@ class BlogCategoryController extends Controller
     {
         //
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
     }
 
@@ -110,7 +113,7 @@ class BlogCategoryController extends Controller
     {
         //
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
 
 
@@ -126,7 +129,8 @@ class BlogCategoryController extends Controller
     {
         //
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
+        $blogCategory->delete();
     }
 }

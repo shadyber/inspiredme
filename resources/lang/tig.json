@@ -1,6 +1,20 @@
 {
+
+    "Intro1": "መጀመሪያ",
+    "Intro2": "መጣጥፎች",
+    "Intro3": "መጣጥፎች",
+    "Intro1_detail": "መጣጥፎች",
+    "Intro2_detail": "መጣጥፎች",
+    "Intro3_detail": "መጣጥፎች",
+
+
+
     "Home": "መጀመሪያ",
     "Articles": "መጣጥፎች",
+    "Posts": "መጣጥፎች",
+    "Popular": "የተለመዱ ",
+    "Recent": "የቅርብ ጊዜ",
+    "Trending": "እየተወዳዱ የመጡ",
     "Categories": "ምድቦች",
     "Search Result": "የፍለጋ ውጤት",
     "welcome" : "እንኳን ደህና መጡ",
@@ -18,14 +32,31 @@
     "throttle": "በተደጋጋሚ ሙከራ ተሞክሯል ",
     "Helping You": "እርስዎን መርዳት",
     "Check Out Our Services": "አገልግሎታችንን ይመልከቱ",
+    "Terms and Conditions": "ውሎች እና ሁኔታዎች",
+    "Information we collect": "የምንሰበስባቸው መረጃዎች",
+    "Payment": "ክፍያ",
+    "Registration": "ምዝገባ",
     "Stay in touch": "አትጥፋ",
     "read more": "ተጨማሪ ላንብብ",
-    "Popular": "የተለመዱ",
+    "our": "የኛ ",
+
     "Latest": "የቅርብ",
     "Login": "ግባ",
     "Register": "ተመዝገብ",
     "From": "ከ",
+    "All": "ሁሉም",
+    "What We Do?": "ምንድነው የምንሰራው",
+    "Our Service": "አገልግሎታችን ",
+    "Our Goal": "ግባችን",
+    "Our Vision": "ህልማችን ",
+    "Our Mission": "ተልእኳችን",
     "Stay in touch:": "እንዳያመልጥዎት ",
     "Join": "ተቀላቀሉ",
-    "Newsletter ": "ደብዳቤ ይድረሰኝ"
+    "Subscribe": "ተመዝገቡ",
+    "Newsletter": "ደብዳቤ ይድረሰኝ",
+    "Subscribe Our Newsletter": "ደብዳቤ ይድረሰኝ ላይ መዝግቡኝ",
+    "Tags": "መለያዎች",
+    "Later": "በኋላ",
+    "Submit": "ላክ"
+
 }

@@ -10,10 +10,10 @@
                         <!-- Banner Text -->
                         <div class="banner-slide-text">
                             <p class="category"><a href="#">Motivation</a></p>
-                            <h1> Don't watch the clock; do what it does. Keep going.</h1>
-                            <p class="desc"> Don't watch the clock; do what it does. Keep going.
+                            <h1> {{__('Intro1')}}.</h1>
+                            <p class="desc">{{__('Intro1_detail')}}
                                </p>
-                            <a href="sms://6475?body=ok" class="btn btn-primary btn btn-light">Subscribe</a>
+                            <a href="sms://6475?body=ok" class="btn btn-primary btn btn-light">{{__('Subscribe')}}</a>
                         </div>
                         <!-- End of Banner Text -->
                     </div>
@@ -35,9 +35,9 @@
                         <!-- Banner Text -->
                         <div class="banner-slide-text">
                             <p class="category"><a href="#">Action</a></p>
-                            <h1>Without knowledge action is useless and knowledge without action is futile.
+                            <h1>{{__('Intro2')}}
                               </h1>
-                            <p class="desc">Without knowledge action is useless and knowledge without action is futile. </p>
+                            <p class="desc">{{__('Intro2_detail')}} </p>
                             <a href="sms://8888?body=ok" class="btn btn-primary">View More</a>
                         </div>
                         <!-- End of Banner Text -->
@@ -60,8 +60,8 @@
                         <!-- Banner Text -->
                         <div class="banner-slide-text">
                             <p class="category"><a href="#">Knowledge</a></p>
-                            <h1>Knowledge is power. Information is liberating. Education is the premise of progress,  </h1>
-                            <p class="desc">Knowledge is power. Information is liberating. Education is the premise of progress, in every society, in every family.</p>
+                            <h1>{{__('Intro3')}}</h1>
+                            <p class="desc">{{__('Intro3_detail')}}</p>
                             <a href="sms://8888?body=ok" class="btn btn-primary">View More</a>
                         </div>
                         <!-- End of Banner Text -->

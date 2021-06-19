@@ -42,7 +42,7 @@ class BlogController extends Controller
 
         //
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
         return view('blog.create');
 
@@ -58,7 +58,7 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
 
         $request->validate([

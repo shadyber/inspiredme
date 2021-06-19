@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsletterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('create','store');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +21,8 @@ class NewsletterController extends Controller
     public function index()
     {
         //
+
+        return view('newsletter.index')->with(['newsletters'=>Newsletter::all()]);
     }
 
     /**
@@ -25,6 +33,7 @@ class NewsletterController extends Controller
     public function create()
     {
         //
+        return  view('newslater.create');
     }
 
     /**
@@ -35,7 +44,21 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        $request->validate([
+            'email'=>'required'
+              ]);
+
+
+        Newsletter::create([
+                'email'=>$request->input('email'),
+                           ]
+        );
+
+        return redirect()->back()->with('success','You are sucussfuly subscribed to our  Newsletter List \n Thank You ');
+
+
     }
 
     /**
@@ -46,7 +69,7 @@ class NewsletterController extends Controller
      */
     public function show(Newsletter $newsletter)
     {
-        //
+      return view('newsletter.show')->with(['newletter'=>$newsletter]);
     }
 
     /**
@@ -81,5 +104,9 @@ class NewsletterController extends Controller
     public function destroy(Newsletter $newsletter)
     {
         //
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
+        }
+        $newsletter->delete();
     }
 }

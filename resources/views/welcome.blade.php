@@ -3,13 +3,30 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 
-        <title>Welcome {{ config('app.name', 'InspiredMe') }}</title>
+
+        <title>Welcome {{ config('app.name', 'Info251') }}</title>
 
         <meta property="og:url"           content="{{url()->full()}}" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="Welcome to  Info251" />
-        <meta property="og:description"   content="sms ok on 6475 to suscribe " />
+        <meta property="og:description"   content="sms ok on 6475 to suscribe and get inspired every day." />
         <meta property="og:image"         content="https://info251.com/assets/images/banner/4.jpg')" />
 
         <!-- Scripts -->
@@ -90,6 +107,7 @@
 
 @include('components.banner')
 <main id="app">
+@include('layouts.flash_message')
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -113,7 +131,7 @@
                                     <div class="input-group">
 
                                         <div class="input-group-append">
-                                            <a href="sms://6475?body=ok" class="btn btn-default btn-block">Join Us Now</a>
+                                            <a href="sms://6475?body=ok" class="btn btn-default btn-block">{{__('Join Us Now')}}</a>
                                         </div>
                                     </div>
 
@@ -123,13 +141,13 @@
                     </div>
                 </div>
                 <div class="modal-footer input-group-append">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Later</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Later')}}</button>
 
                 </div>
             </div>
         </div>
     </div>
-    <!-- Trending Posts-->
+    <!-- Trending  Article-->
     <section class="pt-120 pb-10">
         <div class="container">
             <!-- Section Title -->
@@ -209,7 +227,7 @@
             </div>
         </div>
     </section>
-    <!-- End of Trending Posts-->
+    <!-- End of Trending  Article-->
 
     <!-- post with sidebar -->
     <div class="container pt-40 pb-90">
@@ -219,7 +237,7 @@
                 <section class="popular-post pb-10">
                     <!-- Section title -->
                     <div class="section-title">
-                        <h2>{{__('Popular Posts')}}</h2>
+                        <h2>{{__('Popular')}} {{__ ('Articles')}}</h2>
                     </div>
                     <!-- End of Section title -->
 
@@ -271,7 +289,7 @@
                 <section class="pt-40 pb-10 most-viewed">
                     <!-- Section title -->
                     <div class="section-title">
-                        <h2>{{__('Recent Blogs')}}</h2>
+                        <h2>{{__('Recent')}} {{__ ('Articles')}}</h2>
                     </div>
                     <!-- End of Section title -->
                     <div class="post-blog-list">
@@ -338,7 +356,7 @@
                 <div class="pt-88">
                     <div class="my-sidebar">
 
-                        <!-- Featured Posts -->
+                        <!-- Featured  Article -->
                         <div class="widget widget-featured-post">
                             <!-- Widget Title -->
                             <h4 class="widget-title">
@@ -367,7 +385,7 @@
                             </div>
                             <!-- End of Widget Content -->
                         </div>
-                        <!-- End of Featured Posts -->
+                        <!-- End of Featured  Article -->
 
 
                         <!-- Newsletter Widget -->
@@ -381,12 +399,13 @@
                             <!-- Widget Content -->
                             <div class="widget-content">
                                 <!-- Newsletter Text -->
-                                <p>Sign up and receive recent blog and article in your inbox every day.</p>
+                                <p>Sign up and receive recent Article and stories in your inbox every day.</p>
                                 <!-- Newsletter Form -->
                                 <div class="newsletter">
-                                    <form action="/newsletter" method="post" novalidate>
-                                        <input type="text" class="form-control" placeholder="Your Email">
-                                        <button class="btn btn-block btn-default">{{__('Subscribe')}}</button>
+                                    <form action="/newsletters" method="post">
+                                        @csrf
+                                        <input type="email" class="form-control" placeholder="Your Email" required>
+                                        <button type="submit" class="btn btn-block btn-default">{{__('Subscribe')}}</button>
                                     </form>
                                 </div>
                             </div>
@@ -398,7 +417,7 @@
                         <div class="widget widget-recent-post">
                             <!-- Widget Title -->
                             <h4 class="widget-title">
-                               {{__(' Recent Post')}}
+                               {{__(' Recent')}} {{__('Articles')}}
                             </h4>
                             <!-- End of Widget Title -->
 
@@ -429,7 +448,7 @@
                         <div class="widget widget-tag-cloud">
                             <!-- Widget Title -->
                             <h4 class="widget-title">
-                                Tags
+                                {{__('Tags')}}
                             </h4>
                             <!-- End of Widget Title -->
 
@@ -467,17 +486,18 @@
             <div class="newsletter pt-80 pb-80">
                 <!-- Section title -->
                 <div class="section-title text-center">
-                    <h2>Subscribe Our Newsletter</h2>
+                    <h2>{{__('Subscribe Our Newsletter')}}</h2>
                 </div>
                 <!-- End of Section title -->
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <!-- Newsletter Form -->
-                        <form  action="/newsletter" method="post" novalidate>
+                        <form  action="/newsletters" method="post" >
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Enter Your Email">
+                                @csrf
+                                <input type="email" class="form-control" placeholder="Your Email" required>
                                 <div class="input-group-append">
-                                    <button class="btn btn-default">{{__('Submit')}}</button>
+                                    <button type="submit" class="btn btn-default">{{__('Submit')}}</button>
                                 </div>
                             </div>
                             <p class="checkbox-cover d-flex justify-content-center">

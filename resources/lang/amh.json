@@ -1,6 +1,20 @@
 {
+
+    "Intro1": "መጀመሪያ",
+    "Intro2": "መጣጥፎች",
+    "Intro3": "መጣጥፎች",
+    "Intro1_detail": "መጣጥፎች",
+    "Intro2_detail": "መጣጥፎች",
+    "Intro3_detail": "መጣጥፎች",
+
+
+
     "Home": "መጀመሪያ",
     "Articles": "መጣጥፎች",
+    "Posts": "መጣጥፎች",
+    "Popular": "የተለመዱ ",
+    "Recent": "የቅርብ ጊዜ",
+    "Trending": "እየተወዳዱ የመጡ",
     "Categories": "ምድቦች",
     "Search Result": "የፍለጋ ውጤት",
     "welcome" : "እንኳን ደህና መጡ",
@@ -24,7 +38,8 @@
     "Registration": "ምዝገባ",
     "Stay in touch": "አትጥፋ",
     "read more": "ተጨማሪ ላንብብ",
-    "Popular": "የተለመዱ",
+    "our": "የኛ ",
+
     "Latest": "የቅርብ",
     "Login": "ግባ",
     "Register": "ተመዝገብ",
@@ -38,5 +53,10 @@
     "Stay in touch:": "እንዳያመልጥዎት ",
     "Join": "ተቀላቀሉ",
     "Subscribe": "ተመዝገቡ",
-    "Newsletter ": "ደብዳቤ ይድረሰኝ"
+    "Newsletter": "ደብዳቤ ይድረሰኝ",
+    "Subscribe Our Newsletter": "ደብዳቤ ይድረሰኝ ላይ መዝግቡኝ",
+    "Tags": "መለያዎች",
+    "Later": "በኋላ",
+    "Submit": "ላክ"
+
 }

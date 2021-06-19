@@ -69,5 +69,13 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::resource('/permission', App\Http\Controllers\PermissionController::class);
     Route::resource('/role', App\Http\Controllers\RoleController::class);
 
+    Route::get('init', function (){
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
+        \Illuminate\Support\Facades\Artisan::call('db:seed');
+        \Illuminate\Support\Facades\Artisan::call('cache:clear');
+        echo 'initialized';
+    });
+
 });
 
