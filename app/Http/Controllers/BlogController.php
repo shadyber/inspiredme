@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Image;
 
 
@@ -76,12 +77,13 @@ class BlogController extends Controller
 
             $file = $request->file('photo');
             $file_name =$newImageName;
-
-            $destinationPath = 'images/blog/thumbnails/';
-            $new_img = Image::make($file->getRealPath())->resize(530, 530);
+            $destinationPath = 'images/blog/';
+            $new_img = Image::make($file->getRealPath())->resize(true, true);
 
 // save file with medium quality
-            $new_img->save($destinationPath . $file_name, 80);
+            $new_img->save($destinationPath . $file_name, 100);
+            $new_img->save($destinationPath.'thumbnails/' . $file_name, 15);
+
             $request->photo->move(public_path('images/blog'),$newImageName);
 
         }
@@ -107,7 +109,7 @@ class BlogController extends Controller
             $user->Notify(new BlogCreatedNotification());
         }
 
-        return redirect()->back()->with('message','Article Created Succusfully!');
+        return redirect()->back()->with('success','Article Created Succusfully!');
 
     }
 
