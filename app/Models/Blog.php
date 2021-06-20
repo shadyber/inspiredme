@@ -64,7 +64,7 @@ class Blog extends Model
 
   public static function featuredN($n){
         return Blog::query()
-          ->where('tags', 'LIKE', "%featured %")
+          ->where('tags', 'LIKE', "%featured %")->orderBy('id','desc')
 
           ->get();
 

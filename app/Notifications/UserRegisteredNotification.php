@@ -42,7 +42,7 @@ class UserRegisteredNotification extends Notification
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->action('Notification Action', url('/users/'))
                     ->line('Thank you for using our application!');
     }
 
@@ -62,7 +62,7 @@ class UserRegisteredNotification extends Notification
     {
         return [
            'message'=>'message',
-            'action'=>'/'
+            'action'=>'/users'
         ];
     }
 }

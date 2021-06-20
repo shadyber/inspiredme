@@ -1,4 +1,5 @@
-@extends('layouts.admin')
+
+@extends('layouts.app')
 
 
 @section('content')
@@ -26,11 +27,7 @@
                                 <tr>
 
                                     <td>{{$notification->data['message']}}  <small> {{$notification->created_at->diffForHumans()}}  </small> </td>
-                                    <td>
-                                        <small><a href="#">mark as Read</a></small>
-                                        <small><a href="{{$notification->data['action']}}">More Detail</a></small>
-
-                                    </td>
+                                    <td><small><a href="#">mark as Read</a></small></td>
 
                                 </tr>
                             @endforeach

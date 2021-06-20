@@ -26,6 +26,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/userprofile', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/blog', App\Http\Controllers\BlogController::class);
 Route::resource('/category', App\Http\Controllers\BlogCategoryController::class);
@@ -59,6 +61,7 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controller
 
 Route::get('/notifications',[App\Http\Controllers\NotificationsController::class,'index']);
 Route::get('/notifications/{id}',[App\Http\Controllers\NotificationsController::class,'show'])->name('notification.read');
+
 
 
 

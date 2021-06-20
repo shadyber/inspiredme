@@ -15,6 +15,7 @@
 
 
         @foreach($blogs->chunk(3) as $chunk)
+
             <div class="row">
                 @foreach($chunk as $blog)
                     <div class="col-md-4 col-sm-6">
@@ -27,7 +28,7 @@
                             </div>
                             <div class="post-data">
                                 <!-- Category -->
-                                <div class="cats"><a href="/category/{{$blog->category->slug}}">{{$blog->category->title}}</a></div>
+                                <div class="cats"><a href="/category/{{$blog->category->slug}}"> {{$blog->category->title}} </a></div>
                                 <!-- Title -->
                                 <div class="title">
                                     <h2><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h2>
@@ -35,8 +36,9 @@
                                 <!-- Post Desc -->
                                 <div class="desc">
                                     <p>
-                                    {{!! substr(strip_tags($blog->detail),0,100) }}
+                                        {{ substr(strip_tags($blog->detail),0,70 ) }}...
                                     </p>
+
                                 </div>
                             </div>
                         </div>
@@ -51,10 +53,9 @@
 
         <!-- Post Pagination -->
         <div class="post-pagination d-flex justify-content-center">
-            <span class="current">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#"><i class="fa fa-angle-right"></i></a>
+
+            {{ $blogs->links('vendor.pagination.bootstrap-4') }}
+
         </div>
         <!-- End of Post Pagination -->
     </div>

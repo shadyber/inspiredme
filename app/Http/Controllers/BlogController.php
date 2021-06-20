@@ -14,6 +14,7 @@ use Image;
 
 
 
+
 class BlogController extends Controller
 {
     public function __construct()
@@ -27,8 +28,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
-        return view('blog.index')->with(['blogs'=>Blog::all()]);
+
+        $blogs= Blog::orderBy('id','desc')->paginate(15);
+        return view('blog.index')->with(['blogs'=>$blogs]);
     }
 
     /**
@@ -89,7 +91,7 @@ class BlogController extends Controller
         }
 
 //dd($request);
-        Blog::create([
+      $lastblog=  Blog::create([
                 'title'=>$request->input('title'),
                 'detail'=>$request->input('detail'),
                 'slug'=>SlugService::createSlug(Blog::class,'slug',$request->title.$request->_token),
@@ -106,7 +108,7 @@ class BlogController extends Controller
 
         $users=User::all();
         foreach ($users as $user){
-            $user->Notify(new BlogCreatedNotification());
+            $user->Notify(new BlogCreatedNotification($lastblog));
         }
 
         return redirect()->back()->with('success','Article Created Succusfully!');

@@ -10,14 +10,16 @@ use Illuminate\Notifications\Notification;
 class BlogCreatedNotification extends Notification
 {
     use Queueable;
+    public  $blog;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($blog)
     {
+        $this->blog=$blog;
         //
     }
 
@@ -42,7 +44,7 @@ class BlogCreatedNotification extends Notification
     {
         return (new MailMessage)
                     ->line('New Articles are Created at info251.')
-                    ->action('Browse', url('/blog'))
+                    ->action('Browse', url('/blog/'.$this->blog->slug))
                     ->line('Thank you for using info251!');
     }
 
@@ -56,7 +58,11 @@ class BlogCreatedNotification extends Notification
     {
         return [
             'message'=>'New Article is Creaed at info251',
-            'action'=>'/blog/'.$notifiable->id
+            'action'=>'/blog/'.$this->blog->slug,
+            'detail'=>''.strip_tags($this->blog->detail),
+            'title'=>''.$this->blog->title,
+            'thumb'=>$this->blog->thumb,
+            'photo'=>$this->blog->photo,
         ];
     }
 }

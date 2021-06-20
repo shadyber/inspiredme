@@ -69,7 +69,7 @@
                                         <li class="menu-item-has-children">
                                             <a   href="#" id="alertsDropdown" role="button"
                                                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="fas fa-bell-slash-o"></i>
+                                                <i class="fa fa-bell-o"></i>
                                                 <!-- Counter - Alerts -->
                                                 <span class="badge badge-info badge-counter">
                        {{count(\Illuminate\Support\Facades\Auth::user()->unreadNotifications)}}</span>
@@ -78,7 +78,7 @@
 
                                                 @foreach(\Illuminate\Support\Facades\Auth::user()->unreadNotifications as $notification)
                                                     <li>
-                                                        <a class="dropdown-item d-flex align-items-center" href="/blog/{{$notification->id}}">
+                                                        <a class="dropdown-item d-flex align-items-center" href="/notifications/{{$notification->id}}">
                                                             <div class="mr-3">
                                                                 <div class="icon-circle bg-primary">
                                                                     <i class="fas fa-file-alt text-white"></i>
