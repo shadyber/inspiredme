@@ -19,6 +19,7 @@ use App\Http\Controllers\BlogController;
 */
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
@@ -65,6 +66,14 @@ Route::get('/notifications/{id}',[App\Http\Controllers\NotificationsController::
 
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class,'index'])->name('admin_profile');
+
+Route::get('/newapp', function (){
+    \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
+    \Illuminate\Support\Facades\Artisan::call('db:seed');
+    echo 'initialized';
+});
+
+
 Route::group(['middleware' => 'role:admin'], function() {
 
     Route::resource('/user', App\Http\Controllers\UserController::class);
@@ -72,13 +81,29 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::resource('/role', App\Http\Controllers\RoleController::class);
 
     Route::get('/init', function (){
+
         \Illuminate\Support\Facades\Artisan::call('storage:link');
         \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
         \Illuminate\Support\Facades\Artisan::call('db:seed');
-        \Illuminate\Support\Facades\Artisan::call('cache:clear');
-        \Illuminate\Support\Facades\Artisan::call('route:cache');
         echo 'initialized';
     });
+
+    Route::get('/route-cache', function() {
+        $exitCode = Artisan::call('route:cache');
+        return 'Routes cache cleared';
+    });
+
+
+    Route::get('/config-cache', function() {
+        $exitCode = Artisan::call('config:cache');
+        return 'Config cache cleared';
+    });
+
+    Route::get('/cache-clear', function() {
+        $exitCode = Artisan::call('cache:clear');
+        return 'Config cache cleared';
+    });
+
 
 });
 

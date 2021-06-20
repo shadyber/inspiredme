@@ -51,7 +51,15 @@
     </div>
 
 
+@php
 
+
+            $exitCode = Artisan::call('route:cache');
+
+ echo "cache clear";
+
+
+@endphp
 
 
 
