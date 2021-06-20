@@ -11,7 +11,8 @@
             <ul class="nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/blog">{{__('Articles')}}</a></li>
-                <li>here {{$blog->title}}</li>
+                <li><a href="{{$blog->category->getlink()}}">{{$blog->category->title}}</a></li>
+                <li>here <a href="{{$blog->getlink()}}">{{$blog->title}}</a> </li>
             </ul>
         </div>
     </div>

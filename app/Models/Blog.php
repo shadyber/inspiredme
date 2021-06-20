@@ -31,8 +31,9 @@ class Blog extends Model
             'slug'=>['source'=>'title']
         ];
     }
-
-
+public function getlink(){
+        return url('/blog/'.$this->slug);
+}
     public function user(){
         return $this->belongsTo(User::class);
     }

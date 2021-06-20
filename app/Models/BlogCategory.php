@@ -19,12 +19,7 @@ class BlogCategory extends Model
 
     ];
 
-    public static function allCategories(){
-        return BlogCategory::all();
-    }
-    public function blogs(){
-        return $this->hasMany(Blog::class);
-    }
+
 
     public function sluggable(): array
     {
@@ -33,4 +28,17 @@ class BlogCategory extends Model
             'slug'=>['source'=>'title']
         ];
     }
+
+    public function getlink(){
+        return url('/category/'.$this->slug);
+    }
+
+
+    public static function allCategories(){
+        return BlogCategory::all();
+    }
+    public function blogs(){
+        return $this->hasMany(Blog::class);
+    }
+
 }

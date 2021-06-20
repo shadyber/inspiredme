@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
@@ -65,6 +66,7 @@ class BlogCategoryController extends Controller
         BlogCategory::create([
                 'title'=>$request->input('title'),
                 'detail'=>$request->input('detail'),
+                'slug'=>SlugService::createSlug(BlogCategory::class,'slug',$request->title.$request->_token),
                  'icon'=>$request->input('icon'),
             ]
         );
@@ -84,7 +86,10 @@ class BlogCategoryController extends Controller
     {
         $blogCategory=BlogCategory::where('slug',$slug)->first();
         //
-        $blogs=$blogCategory->blogs;
+        $blogs=$blogCategory->blogs()->orderBy('id','desc')->paginate(9);
+
+
+
         return view('blog.index')->with(['blogs'=>$blogs]);
     }
 
