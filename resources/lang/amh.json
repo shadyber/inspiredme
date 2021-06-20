@@ -20,6 +20,7 @@
     "welcome" : "እንኳን ደህና መጡ",
     "Search" : "ፈልግ",
     "Contact" : "አድራሻ",
+    "Contact Us" : "አግኙን",
     "About" : "ስለኛ",
     "previous" : "&laquo; በፌት",
     "next" : "ቀጥሎ  &raquo;",
@@ -36,7 +37,8 @@
     "Information we collect": "የምንሰበስባቸው መረጃዎች",
     "Payment": "ክፍያ",
     "Registration": "ምዝገባ",
-    "Stay in touch": "አትጥፋ",
+    "Stay In Touch": "በቅርብ ይሁኑ ",
+    "Get In Touch": "በቅርብ ያግኙን",
     "read more": "ተጨማሪ ላንብብ",
     "our": "የኛ ",
 

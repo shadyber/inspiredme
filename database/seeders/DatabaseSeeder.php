@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BlogCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,7 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserRoleSeeder::class);
 
         \App\Models\User::factory(3)->create();
-        \App\Models\BlogCategory::factory(3)->create();
+       // \App\Models\BlogCategory::factory(3)->create();
+        $this->call(BlogCategorySeeder::class);
         \App\Models\Blog::factory(50)->create();
         \App\Models\Banner::factory(3)->create();
         \App\Models\Newsletter::factory(10)->create();

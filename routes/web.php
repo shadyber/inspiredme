@@ -32,9 +32,8 @@ Route::get('/userprofile', [App\Http\Controllers\HomeController::class, 'index']
 Route::resource('/blog', App\Http\Controllers\BlogController::class);
 Route::resource('/category', App\Http\Controllers\BlogCategoryController::class);
 
-Route::get('/contact',function (){
-    return view('contact');
-});
+Route::resource('/contact',App\Http\Controllers\ContactUsController::class);
+
 Route::get('/subscribe',function (){
     return view('subscribe');
 });
@@ -77,6 +76,7 @@ Route::group(['middleware' => 'role:admin'], function() {
         \Illuminate\Support\Facades\Artisan::call('migrate:fresh');
         \Illuminate\Support\Facades\Artisan::call('db:seed');
         \Illuminate\Support\Facades\Artisan::call('cache:clear');
+        \Illuminate\Support\Facades\Artisan::call('route:cache');
         echo 'initialized';
     });
 
