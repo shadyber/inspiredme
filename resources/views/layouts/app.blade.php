@@ -78,8 +78,6 @@
     <!--==== Custom css file ====-->
     <link rel="stylesheet" href="/assets/css/custom.css">
 
-
-
 </head>
     <body>
     <div id="fb-root"></div>
@@ -164,8 +162,6 @@
         <!-- ==== Script js file ==== -->
         <script src="/assets/js/scripts.js"></script>
 
-        <!-- ==== Custom js file ==== -->
-        <script src="/assets/js/custom.js"></script>
 
 
     <script>
@@ -179,5 +175,6 @@
 
 
     </script>
+
         </body>
     </html>

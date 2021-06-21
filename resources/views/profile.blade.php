@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -14,6 +14,13 @@
                         </div>
                     @endif
 
+
+
+                    <h3>ChangePassword</h3>
+
+
+                        <hr>
+                    <h3>update profile</h3>
 
 
                 </div>

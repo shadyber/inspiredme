@@ -30,7 +30,7 @@ class BlogController extends Controller
     {
 
         $blogs= Blog::orderBy('id','desc')->paginate(9);
-        return view('blog.index')->with(['blogs'=>$blogs]);
+        return view('blog.index')->with(['blogs'=>$blogs])->with('error','You Don\'t Have This Permission');
     }
 
     /**

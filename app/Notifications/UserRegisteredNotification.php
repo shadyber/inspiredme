@@ -29,7 +29,7 @@ class UserRegisteredNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','mail'];
     }
 
     /**

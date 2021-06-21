@@ -27,8 +27,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'index'])->name('profile');
-Route::get('/userprofile', [App\Http\Controllers\HomeController::class, 'index'])->name('userprofile');
+
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+
+Route::get('/userprofile', [App\Http\Controllers\ProfileController::class, 'index'])->name('userprofile');
 
 Route::resource('/blog', App\Http\Controllers\BlogController::class);
 Route::resource('/category', App\Http\Controllers\BlogCategoryController::class);

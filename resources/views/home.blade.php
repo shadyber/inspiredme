@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+
+    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,10 +17,10 @@
                     @endif
 
 
-  {{\Illuminate\Support\Facades\Auth::user()->hasRole('admin','editor')}}
                 </div>
             </div>
         </div>
     </div>
+    @endif
 </div>
 @endsection

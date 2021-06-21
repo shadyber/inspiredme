@@ -54,7 +54,7 @@
 @php
 
 
-            $exitCode = Artisan::call('route:cache');
+            $exitCode = Artisan::call('cach:clear');
 
  echo "cache clear";
 
