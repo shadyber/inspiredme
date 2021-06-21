@@ -62,7 +62,7 @@ class UserRegisteredNotification extends Notification
     {
         return [
            'message'=>'message',
-            'action'=>'/users'
+            'action'=>'/user'
         ];
     }
 }

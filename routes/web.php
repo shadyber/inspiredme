@@ -109,3 +109,24 @@ Route::group(['middleware' => 'role:admin'], function() {
 
 });
 
+
+Route::get('/restart-server',function (){
+
+    $exitCode = Artisan::call('route:clear');
+
+    echo  $exitCode;
+    $exitCode1 = Artisan::call('view:clear');
+
+    echo  $exitCode1;
+    $exitCode2 = Artisan::call('config:clear');
+
+    echo  $exitCode2;
+    $exitCode3 = Artisan::call('cache:clear');
+
+    echo  $exitCode3;
+});
+Route::get('/mail-test',function (){
+    $user=\App\Models\User::find(1);
+    $user->Notify(new \App\Notifications\UserRegisteredNotification());
+    echo "Notified";
+});

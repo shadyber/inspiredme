@@ -51,16 +51,6 @@
     </div>
 
 
-@php
-
-
-            $exitCode = Artisan::call('cach:clear');
-
- echo "cache clear";
-
-
-@endphp
-
 
 
 @endsection
