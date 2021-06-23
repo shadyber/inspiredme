@@ -33,6 +33,7 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
 Route::get('/userprofile', [App\Http\Controllers\ProfileController::class, 'index'])->name('userprofile');
 
 Route::resource('/blog', App\Http\Controllers\BlogController::class);
+Route::resource('/video', App\Http\Controllers\VideosController::class);
 Route::resource('/category', App\Http\Controllers\BlogCategoryController::class);
 
 Route::resource('/contact',App\Http\Controllers\ContactUsController::class);

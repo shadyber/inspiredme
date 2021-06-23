@@ -20,6 +20,7 @@
 
 
                             <li><a href="/about">{{__('About')}}</a></li>
+                            <li><a href="/video">{{__('Videos')}}</a></li>
 
                             <li class="menu-item-has-children"><a href="/blog">{{__('Articles')}}</a>
                                 <ul class="sub-menu">
