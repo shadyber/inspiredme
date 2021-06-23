@@ -5,6 +5,7 @@
 @section('detail',$blog->detail)
 
 @section('content')
+
     <div class="page-title">
         <div class="container">
             <h2>{{$blog->title}}</h2>
@@ -19,9 +20,14 @@
 
 
     <div class="container pt-120 pb-90">
+
+
         <div class="row">
+
+
             <div class="col-md-10 offset-md-2">
                 <div class="post-details-cover post-has-full-width-image">
+
                     <!-- Post Thumbnail -->
                     <div class="post-thumb-cover">
                         <div class="post-thumb item-center">
@@ -58,8 +64,6 @@
                     <div class="post-content-cover my-drop-cap">
 
 
-                        <div class="fb-like" data-href="https://info251.com/blog/{{$blog->slug}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-
                         <div>
                             {!!html_entity_decode($blog->detail)!!}
                         </div>
@@ -78,7 +82,6 @@
                         <a href="#">Games</a>
                     </div>
                     <!-- End of Tags -->
-
 
                     <!-- Comments -->
                     <button class="btn btn-comment" type="button" data-toggle="collapse" data-target="#commentToggle" aria-expanded="false" aria-controls="commentToggle">
@@ -140,6 +143,7 @@
                     <!-- Comment Form -->
                     <div class="post-comment-form-cover">
                         <h3>Write your comment</h3>
+
                         @auth
                         <form action="/comment" method="post" class="form fw-row pb50">
                             @csrf
@@ -159,18 +163,25 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                @endauth
-                    @guest
-                        <a href="/login"> Login  </a>or |<a href="/register">Register </a> for Comment
-                    @endguest
+
+                        @endauth
+
+                        @guest
+                            <a href="/login"> Login  </a>or |<a href="/register">Register </a> for Comment
+                        @endguest
                     <!-- End of Comment Form -->
-
-                    <div class="fb-like" data-href="https://info251.com/blog/{{$blog->slug}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
                 </div>
-            </div>
+
+                    <hr>
+
+
+             </div>
+
         </div>
+
+
+        </div>
+
+
     </div>
-
-
 @endsection

@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+@section('title','List Blog')
 @section('content')
     <div class="page-title">
         <div class="container">

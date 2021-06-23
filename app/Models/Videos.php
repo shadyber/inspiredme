@@ -45,4 +45,9 @@ class Videos extends Model
         return $this->belongsTo(BlogCategory::class,'blog_category_id','id');
     }
 
+    public static function lastN($n){
+        return Videos::orderBy('id', 'desc')->take($n)->get();
+    }
+
+
 }

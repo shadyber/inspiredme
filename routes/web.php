@@ -55,6 +55,13 @@ Route::get('/terms', function (){
 Route::get('/about', function (){
     return view('about');
 });
+Route::get('/dashboard', function (){
+    return view('dashboard');
+});
+
+Route::get('/migrate', function (){
+    \Illuminate\Support\Facades\Artisan::call('migrate');
+});
 
 Route::resource('/comment', App\Http\Controllers\BlogCommentController::class);
 Route::resource('/newsletters', App\Http\Controllers\NewsletterController::class);

@@ -86,6 +86,52 @@
 
         </div>
     </div>
+
+
+
+
+
+
+    <div class="col-md-12">
+        <div class="main-title">
+            <div class="btn-group float-right right-action">
+                <h3>List of All Videos</h3>
+            </div>
+            <div>
+                <table class="table" width="100%">
+                    <th>
+                        <tr>
+                            <td>id</td>
+                            <td>thumb</td>
+                            <td>title</td>
+                            <td>detail</td>
+                            <td>action</td>
+                        </tr>
+                    </th>
+
+@foreach($videos=\App\Models\Videos::Paginate(15) as $video)
+                    <tr>
+                        <td>{{$video->id}}</td>
+                        <td><img src="{{$video->thumb_small}}" alt="{{$video->title}}" class="img img-thumbnail" width="48px"></td>
+                        <td>{{$video->title}}</td>
+                        <td>{{substr(strip_tags($video->detail),0,100)}}</td>
+                        <td>
+                            <a href="/video/{{$video->id}}/edit" class="btn btn-outline-primary">Edit</a>
+                            <a href="/video/{{$video->slug}}" class="btn btn-outline-info" target="_blank">Show</a>
+                            <a href="/video/{{$video->slug}}" class="btn btn-danger">Delete</a>
+
+                        </td>
+                    </tr>
+                    @endforeach
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection
 @section('scripts')
     <script src="/admin/custome.js"></script>

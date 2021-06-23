@@ -444,6 +444,38 @@
                         </div>
                         <!-- End of Recent Post Widget -->
 
+
+                        <!-- Recent Post Widget -->
+                        <div class="widget widget-recent-post">
+                            <!-- Widget Title -->
+                            <h4 class="widget-title">
+                                {{__(' Recent')}} {{__('Videos')}}
+                            </h4>
+                            <!-- End of Widget Title -->
+
+                            <!-- Widget Content -->
+                            <div class="widget-content">
+                            @foreach(\App\Models\Videos::lastN(5) as $blog)
+                                <!-- Single Post -->
+                                    <div class="wrp-cover">
+                                        <!-- Post Thumbnail -->
+                                        <div class="post-thumb">
+                                            <a href="/video/{{$blog->slug}}">
+                                                <img src="{{$blog->thumb_small}}" alt="{{$blog->title}}" class="img-fluid">
+                                            </a>
+                                        </div>
+                                        <!-- Post Title -->
+                                        <div class="post-title">
+                                            <a href="/video{{$blog->slug}}">{{$blog->title}}</a>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                            <!-- End of Widget Content -->
+                        </div>
+                        <!-- End of Recent Post Widget -->
+
                         <!-- Tags Cloud Widget -->
                         <div class="widget widget-tag-cloud">
                             <!-- Widget Title -->

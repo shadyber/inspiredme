@@ -64,7 +64,6 @@
                     <div class="post-content-cover my-drop-cap">
 
 
-                        <div class="fb-like" data-href="https://info251.com/video/{{$video->slug}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 
                         <div>
                             {!!html_entity_decode($video->detail)!!}
@@ -92,8 +91,7 @@
                     </button>
            <!-- Comment Form -->
 
-                    <div class="fb-like" data-href="https://info251.com/video/{{$video->slug}}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
-                </div>
+              </div>
             </div>
         </div>
     </div>

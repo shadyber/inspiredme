@@ -66,7 +66,6 @@ class BlogController extends Controller
         $request->validate([
             'title'=>'required',
             'detail'=>'required',
-            'tags'=>'required',
             'blog_category_id'=>'required',
 
             'photo'=>'required|mimes:jpg,png,jpeg|max:5048',
@@ -137,8 +136,11 @@ $blog->save();
      */
     public function edit(Blog $blog)
     {
-        //
-        return view('blog.edit')->with(['blog'=>$blog]);
+        if(!Auth::user()->hasRole('admin')){
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
+        }
+      return view('blog.edit')->with('blog',$blog);
+
     }
 
     /**
@@ -149,12 +151,53 @@ $blog->save();
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Blog $blog)
-    {
+    {  //
         if(!Auth::user()->hasRole('admin')){
-            return redirect()->back()->with('error','You Don\t Have This Permission');
+            return redirect()->back()->with('error','You Don\'t Have This Permission');
         }
 
+        $request->validate([
+            'title'=>'required',
+            'blog_category_id'=>'required',
 
+        ]);
+
+        if($request->hasFile('photo')) {
+
+            $newImageName=uniqid().'_'. $request->title.'.'.$request->photo->extension();
+
+
+            $file = $request->file('photo');
+            $file_name =$newImageName;
+            $destinationPath = 'images/blog/';
+            $new_img = Image::make($file->getRealPath())->resize(true, true);
+
+// save file with medium quality
+            $new_img->save($destinationPath . $file_name, 100);
+            $new_img->save($destinationPath.'thumbnails/' . $file_name, 15);
+
+            $request->photo->move(public_path('images/blog'),$newImageName);
+            $PHOTO_URL='/images/blog/'.$newImageName;
+            $THUMB_URL='/images/blog/thumbnails/'.$newImageName;
+        }else{
+            $PHOTO_URL=$blog->photo;
+            $THUMB_URL=$blog->thumb;
+        }
+
+//dd($request);
+        $blog->title=$request->input('title');
+        $blog->detail=$request->input('detail');
+
+        $blog->photo = $PHOTO_URL;
+        $blog->thumb = $THUMB_URL;
+        $blog->tags = $request->input('tags');
+
+
+
+        $blog->blog_category_id = $request->input('blog_category_id');
+        $blog->save();
+
+        return redirect()->back()->with('success','Article Updated Succusfully!');
 
     }
 

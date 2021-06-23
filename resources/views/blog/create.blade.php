@@ -1,4 +1,6 @@
 @extends('layouts.admin')
+
+@section('title','New Blog')
 @section('content')
 
 
@@ -7,7 +9,7 @@
         <div class="form-group mb-4">
             <label class="col-md-12 p-0">{{__('Title')}}</label>
             <div class="col-md-12 border-bottom p-0">
-                <input type="text" name="title" placeholder="{{__('Title')}}" class="form-control p-0 border-0   @error('title') is-invalid @enderror"> </div>
+                <input type="text" name="title" placeholder="{{__('Title')}}" class="form-control p-0 border-0   @error('title') is-invalid @enderror" required> </div>
             @error('title')
             <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -18,7 +20,7 @@
         <div class="form-group mb-4">
             <label class="col-md-12 p-0">{{__('Photo')}}</label>
             <div class="col-md-12 border-bottom p-0   @error('photo') is-invalid @enderror">
-                <input type="file" name="photo"  class="form-control p-0 border-0">
+                <input type="file" name="photo"  class="form-control p-0 border-0" required>
                 @error('photo')
                 <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
@@ -53,7 +55,7 @@
         <div class="form-group mb-4">
             <label class="col-sm-12">{{__('Select Category')}}</label>
             <div class="col-sm-12 border-bottom">
-                <select name="blog_category_id" class="form-control p-0 border-0   @error('blog_category_id') is-invalid @enderror" name="blog_category_id">
+                <select name="blog_category_id" class="form-control p-0 border-0   @error('blog_category_id') is-invalid @enderror" name="blog_category_id" required>
                     @foreach(\App\Models\BlogCategory::allCategories() as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
                     @endforeach
@@ -72,7 +74,38 @@
         </div>
     </form>
 
+<div class="row">
+<div class="col-md-12">
+    <table class="table  w-auto" width="100%">
+        <th>
+            <tr>
+                <td>id</td>
+                <td>Img</td>
+                <td>title</td>
+                <td>detail</td>
+                <td>action</td>
+            </tr>
 
+        </th>
+
+
+        @foreach(App\Models\Blog::Paginate(15) as $blog)
+        <tr>
+            <td>{{$blog->id}}</td>
+            <td><img src="{{$blog->thumb}}" alt="{{$blog->title}}" width="32px" class="img img-thumbnail"></td>
+            <td>{{$blog->title}}</td>
+            <td>{{substr(strip_tags($blog->detail),0,100)}}</td>
+            <td>
+                <a href="/blog/{{$blog->id}}/edit" class="btn btn-primary"> Edit</a>
+                <a href="/blog/{{$blog->slug}}" class="btn btn-info" target="_blank"> Show</a>
+            </td>
+        </tr>
+        @endforeach
+    </table>
+
+</div>
+
+</div>
 @endsection
 @section('scripts')
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
