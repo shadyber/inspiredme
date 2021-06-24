@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'intro1' => 'welcome to intro one',
-    'intro2' => 'Welcome to intro two',
-    'intro3' => 'Welcome to intro three',
+    'Intro1' => 'Inspirational Success Stories',
+    'Intro2' => 'Motivational Stories ',
+    'Intro3' => 'Failures to Success Stories',
 
 ];

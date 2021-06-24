@@ -1,11 +1,12 @@
 {
 
-    "Intro1": "መጀመሪያ",
-    "Intro2": "መጣጥፎች",
-    "Intro3": "መጣጥፎች",
-    "Intro1_detail": "መጣጥፎች",
-    "Intro2_detail": "መጣጥፎች",
-    "Intro3_detail": "መጣጥፎች",
+    "Intro1" : "Inspirational Success Stories",
+    "Intro2" : "Motivational Stories ",
+    "Intro3" : "Failures to Success Stories",
+
+    "Intro1_detail": "Inspirational Success Stories to Keep You Striving For Your Dreams",
+    "Intro2_detail": "Motivational Stories To Push You Forward In Life",
+    "Intro3_detail": "Famous Failures to Success Stories That Will Inspire You to Carry On",
 
 
 
