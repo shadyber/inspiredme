@@ -97,6 +97,15 @@
             <td>{{substr(strip_tags($blog->detail),0,100)}}</td>
             <td>
                 <a href="/blog/{{$blog->id}}/edit" class="btn btn-primary"> Edit</a>
+                <form id="delete-form" method="POST" class="form-inline" action="/blog/{{$blog->id}}">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-sm btn-danger" value="Delete Article">
+                    </div>
+                </form>
+
                 <a href="/blog/{{$blog->slug}}" class="btn btn-info" target="_blank"> Show</a>
             </td>
         </tr>

@@ -26,6 +26,7 @@ class CreateBlogsTable extends Migration
             $table->string('slug', 255)->unique();
             $table->string('tags')->nullable();
             $table->integer('visit')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
