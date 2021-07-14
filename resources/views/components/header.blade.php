@@ -41,15 +41,29 @@
                    <!-- Current menu item -->
 
 
-                    <li><a href="/blog">{{__('Articles')}}</a></li>
                    <li class="menu-item-has-children">
-                      <a href="/blog">{{__('Categories')}}</a>
+                      <a href="/blog">{{__('Articles')}}</a>
                       <div class="sub-nav">
                          <ul class="sub-menu">
+                             <li><a href="/blog">{{__('All Articles')}}</a></li>
                              @foreach(\App\Models\BlogCategory::allCategories() as $category)
                             <li><a href="/category/{{$category->slug}}">{{$category->title}}</a></li>
                              @endforeach
                          </ul>
+                      </div>
+                   </li>
+
+
+
+                   <li class="menu-item-has-children">
+                      <a href="/video">{{__('Videos')}}</a>
+                      <div class="sub-nav">
+                          <ul class="sub-menu">
+                              <li><a href="/blog">{{__('All Articles')}}</a></li>
+                              @foreach(\App\Models\BlogCategory::allCategories() as $category)
+                                  <li><a href="/category/{{$category->slug}}">{{$category->title}}</a></li>
+                              @endforeach
+                          </ul>
                       </div>
                    </li>
 
