@@ -15,23 +15,33 @@ class BlogCategorySeeder extends Seeder
     {
 
         \DB::table('blog_categories')->insert([
-            'title' => 'Motivations',
-            'slug' => 'motivations',
+            'title' => 'Facts',
+            'slug' => 'facts',
         ]);
 
         \DB::table('blog_categories')->insert([
-            'title' => 'Inspirations',
-            'slug' => 'inspiration',
+            'title' => 'Nutrition',
+            'slug' => 'nutrition',
         ]);
 
         \DB::table('blog_categories')->insert([
-            'title' => 'Stories',
-            'slug' => 'stories',
+            'title' => 'Fitness',
+            'slug' => 'fitness',
         ]);
 
         \DB::table('blog_categories')->insert([
-            'title' => 'Quotes',
-            'slug' => 'quotes',
+            'title' => 'Researchs',
+            'slug' => 'research',
+        ]);
+
+        \DB::table('blog_categories')->insert([
+            'title' => 'Pandemic',
+            'slug' => 'pandemic',
+        ]);
+
+        \DB::table('blog_categories')->insert([
+            'title' => 'Beauty',
+            'slug' => 'beauty',
         ]);
 
     }

@@ -158,20 +158,20 @@
                             <img src="{{Auth::user()->photo}}" alt="user-img" width="36"
                                  class="img-circle"><span class="text-white font-medium">{{Auth::user()->name}}</span></a>
                     </li>
-<li>
-    <a href="{{ route('logout') }}" class="profile-pic"
-    onclick="event.preventDefault();
-  document.getElementById('logout-form').submit();">
-          <i class="fa fa-power-off"></i>  {{ __('Logout') }}
+                        <li>
+                            <a href="{{ route('logout') }}" class="profile-pic"
+                            onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                                <i class="fa fa-power-off"></i>  {{ __('Logout') }}
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
 
-    </a>
-</li>
+                            </a>
+                        </li>
 
-                    <!-- ============================================================== -->
+                                            <!-- ============================================================== -->
                     <!-- User profile and search -->
                     <!-- ============================================================== -->
                 </ul>

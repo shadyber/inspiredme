@@ -1,61 +1,48 @@
 @extends('layouts.app')
 @section('content')
-    <div class="page-title search-title">
-        <div class="container">
-            <h2><span>Search results for:</span></h2>
-        </div>
-    </div>
+<section>
 
+    <div class="container">
 
-    <div class="container pt-120 pb-90">
-        <div class="row">
-            @foreach($blogs as $blog)
-            <div class="col-sm-6">
-                <!-- Post -->
-                <div class="post-default">
-                    <div class="post-thumb">
-                        <a href="/blog/{{$blog->slug}}">
-                            <img src="{{$blog->thumb}}" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="post-data">
-                        <!-- Category -->
-                        <div class="cats"><a href="/category/{{$blog->category->id}}">{{$blog->category->title}}</a></div>
-                        <!-- Title -->
-                        <div class="title">
-                            <h2><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h2>
-                        </div>
-                        <!-- Post Desc -->
-                        <div class="desc">
-                            <p>
-                                {{substr($blog->detail,0,100)}}
-                            </p>
+        <section class="fw-main-row pt40">
+            <div class="fw-container">
+                <h2 class="heading-decor pb20">Search Result</h2>
+                <div class="fw-row">
+                    @foreach($blogs as $blog)
+                    <!-- Blog item -->
+                    <div class="blog-item in-row fw-col-xs-12">
+                        <div class="fw-row">
+                            <div class="image fw-col-sm-4"><a href="/blog/{{$blog->slug}}"><img src="{{$blog->thumb}}" alt="{{$blog->title}}"></a></div>
+                            <div class="fw-col-sm-8">
+                                <h4><a href="/blog/{{$blog->slug}}">{{$blog->title}}</a></h4>
+                                <div class="post-date">{{$blog->created_at}}</div>
+                                <p>{{substr($blog->detail,0,100)}}...</p>
+                                <a href="/blog/{{$blog->slug}}" class="button-style2 gray min">read more</a>
+                            </div>
                         </div>
                     </div>
+                    <!-- END Blog item -->
+                        @endforeach
+
+                    @if(count($blogs)==0)
+                        <div class="span card-body shadow-lg bg-warning"> No Result Found by this keyword <br>      <a href="/"> Goto Home </a> | or Search different keyword on the top navigation. </div>
+
+                        @endif
+
                 </div>
-                <!-- End of Post -->
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="javascript:void(0);" class="active">1</a>
+                    <a href="javascript:void(0);">2</a>
+                    <a href="javascript:void(0);">3</a>
+                    <a href="javascript:void(0);">4</a>
+                    <a href="javascript:void(0);"><i class="icon-font icon-right-arrow"></i></a>
+                </div>
+                <!-- END Pagination -->
+                
             </div>
-            @endforeach
-
-                @if(count($blogs)==0)
-                    <div class="span card-body shadow-lg bg-warning"> No Result Found by this keyword <br>      <a href="/"> Goto Home </a> | or Search different keyword on the top navigation. </div>
-
-                @endif
-
-
-
-        </div>
-
-        <!-- Post Pagination -->
-        <div class="post-pagination d-flex justify-content-center">
-            <span class="current">1</span>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#"><i class="fa fa-angle-right"></i></a>
-        </div>
-        <!-- End of Post Pagination -->
+        </section>
     </div>
-
-
-
+</section>
 @endsection

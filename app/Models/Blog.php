@@ -68,7 +68,6 @@ public function getlink(){
           ->where('tags', 'LIKE', "%featured %")->orderBy('id','desc')
 
           ->get();
-
     }
 
 

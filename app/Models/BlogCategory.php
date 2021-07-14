@@ -37,8 +37,8 @@ class BlogCategory extends Model
     public static function allCategories(){
         return BlogCategory::all();
     }
+
     public function blogs(){
         return $this->hasMany(Blog::class);
     }
-
 }

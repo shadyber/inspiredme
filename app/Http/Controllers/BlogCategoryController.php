@@ -84,13 +84,11 @@ class BlogCategoryController extends Controller
      */
     public function show($slug)
     {
-        $blogCategory=BlogCategory::where('slug',$slug)->first();
-        //
-        $blogs=$blogCategory->blogs()->orderBy('id','desc')->paginate(9);
 
+        $category=BlogCategory::where('slug',$slug)->first();
 
-
-        return view('blog.index')->with(['blogs'=>$blogs]);
+        $blogs=$category->Blogs()->orderBy('id','desc')->paginate(9);
+     return  view('category.show')->with(['blogs'=>$blogs,'category'=>$category]);
     }
 
     /**
